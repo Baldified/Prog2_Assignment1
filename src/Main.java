@@ -5,14 +5,52 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        double[][] numss = new double[][]{
+        double[][] n = new double[][]{
                 {1,5,8},
-                {3,2,6,16,21,5,1,463,21,5413,5},
-                {9,4,1},
+                {3,2,6,5,1,6},
+                {9,4,1}
         };
-        System.out.println(Array2DUtils.min(numss));
 
-        System.out.println(Arrays.toString(Array2DUtils.minOfRow(numss)));
-        System.out.println(Arrays.toString(Array2DUtils.minOfCol(numss)));
+        double[][] d = new double[][] {
+                {1},
+                {2},
+                {3},
+                {4},
+                {5},
+                {6},
+                {7},
+                {8},
+                {9}
+        };
+
+        double[][] n1 = new double[][]{
+                {1, 2, 3},
+                {4, 5}
+        };
+
+        double[][] n2 = new double[][]{
+                {1, 2},
+                {3, 4, 5},
+                {6, 7}
+        };
+
+        System.out.println("1)");
+        System.out.println(Array2DUtils.min(n));
+
+        System.out.println("\n2)");
+        System.out.println(Arrays.toString(Array2DUtils.minOfRow(n)));
+
+        System.out.println("\n3)");
+        System.out.println(Arrays.toString(Array2DUtils.minOfCol(n)));
+
+        System.out.println("\n4)");
+        System.out.println(Arrays.deepToString(Array2DUtils.add(n1, n2)));
+
+        System.out.println("\n5)");
+        System.out.println(Arrays.deepToString(Array2DUtils.deleteRow(d, 5)));
+
+        System.out.println("\n6)");
+        System.out.println(Arrays.deepToString(Array2DUtils.appendArray(d, d)));
     }
+
 }
