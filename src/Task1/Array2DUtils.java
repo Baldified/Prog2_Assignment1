@@ -36,25 +36,40 @@ public class Array2DUtils {
 
     // 3.
     public static double[] minOfCol(double[][] numss) {
-        int length = Integer.MIN_VALUE;
-        for (double[] nums : numss) {
-            if (nums.length > length) length = nums.length;
-        }
+//        int length = Integer.MIN_VALUE;
+//        for (double[] nums : numss) {
+//            if (nums.length > length) length = nums.length;
+//        }
+//
+//        double[][] swap = new double[length][length];
+//        for (double[] minOfCol : swap) {
+//            Arrays.fill(minOfCol, Double.POSITIVE_INFINITY);
+//        }
+//        for (int i = 0; i < length; i++) {
+//            for (int j = 0; j < length; j++) {
+//                try {
+//                    swap[i][j] = numss[j][i];
+//                } catch (IndexOutOfBoundsException _) {
+//                }
+//
+//            }
+//        }
+//        return minOfRow(swap);
+        int length = 0;
+        for (double[] col : numss)
+            if (col.length > length)
+                length = col.length;
 
-        double[][] swap = new double[length][length];
-        for (double[] minOfCol : swap) {
-            Arrays.fill(minOfCol, Double.POSITIVE_INFINITY);
-        }
-        for (int i = 0; i < length; i++) {
-            for (int j = 0; j < length; j++) {
-                try {
-                    swap[i][j] = numss[j][i];
-                } catch (IndexOutOfBoundsException _) {
-                }
+        double[] minOfCol = new double[length];
+        Arrays.fill(minOfCol, Double.POSITIVE_INFINITY);
 
+        for (double[] doubles : numss) {
+            for (int j = 0; j < doubles.length; j++) {
+                if (doubles[j] < minOfCol[j]) minOfCol[j] = doubles[j];
             }
         }
-        return minOfRow(swap);
+
+        return minOfCol;
     }
 
     // 4.
@@ -72,12 +87,6 @@ public class Array2DUtils {
 
 
             for (int j = 0; j < colLength; j++) {
-//                double val1;
-//                double val2;
-//                if (j < sum1.length) val1 = sum1[j];
-//                else val1 = 0;
-//                if (j < sum2.length) val2 = sum2[j];
-//                else val2 = 0;
                 double val1 = (j < sum1.length) ? sum1[j] : 0;
                 double val2 = (j < sum2.length) ? sum2[j] : 0;
                 finalSum[i][j] = val1 + val2;
@@ -124,6 +133,47 @@ public class Array2DUtils {
 
     // 7.
     public static double[][] expendArray(double[][] numss1, double[][] numss2) {
+        int rowLength = Math.max(numss1.length, numss2.length);
+        double[][] expendedArray = new double[rowLength][];
 
+        for (int i = 0; i < rowLength; i++) {
+            int col1 = (i < numss1.length) ? numss1[i].length : 0;
+            int col2 = (i < numss2.length) ? numss2[i].length : 0;
+
+            int colLength = col1 + col2;
+
+            expendedArray[i] = new double[colLength];
+            for (int j = 0; j < colLength; j++) {
+                if (j < col1)
+                    expendedArray[i][j] = numss1[i][j];
+                else {
+                    expendedArray[i][j] = numss2[i][j - col1];
+                }
+            }
+        }
+
+        return expendedArray;
+    }
+
+    // 8.
+    public static double[][] transposeMatrix(double[][] numss) {
+        int row = numss.length;
+        int col = Integer.MIN_VALUE;
+        double[][] transpose;
+        for (int i = 0; i < row; i++) {
+            if (numss[i].length > col) col = numss[i].length;
+        }
+        transpose = new double[col][];
+
+
+        for (int j = 0; j < col; j++) {
+
+            transpose[j] = new double[row];
+
+            for (int k = 0; k < row; k++) {
+                transpose[j][k] = numss[k][j];
+            }
+        }
+        return transpose;
     }
 }

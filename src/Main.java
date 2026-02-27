@@ -29,9 +29,9 @@ public class Main {
         };
 
         double[][] n2 = new double[][]{
-                {1, 2},
+                {1, 2, 8},
                 {3, 4, 5},
-                {6, 7}
+                {6, 7, 9}
         };
 
         System.out.println("1)");
@@ -51,6 +51,12 @@ public class Main {
 
         System.out.println("\n6)");
         System.out.println(Arrays.deepToString(Array2DUtils.appendArray(d, d)));
+
+        System.out.println("\n7)");
+        System.out.println(Arrays.deepToString(Array2DUtils.expendArray(d, n)));
+
+        System.out.println("\n8)");
+        System.out.println(Arrays.deepToString(Array2DUtils.transposeMatrix(n2)));
     }
 
 }
