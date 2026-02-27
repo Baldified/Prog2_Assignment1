@@ -118,12 +118,12 @@ public class Array2DUtils {
         double[][] appendedArray = new double[appendedLength][];
         int k = 0;
         if (k < appendedLength) {
-            for (int i = 0; i < numss1.length; i++) {
-                appendedArray[k] = numss1[i];
+            for (double[] nums1 : numss1) {
+                appendedArray[k] = nums1;
                 k++;
             }
-            for (int j = 0; j < numss2.length; j++) {
-                appendedArray[k] = numss2[j];
+            for (double[] nums2 : numss2) {
+                appendedArray[k] = nums2;
                 k++;
             }
         }

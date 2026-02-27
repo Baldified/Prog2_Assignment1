@@ -1,6 +1,5 @@
 import Task1.*;
-
-import java.lang.reflect.Array;
+import Task2.*;
 import java.util.Arrays;
 
 public class Main {
@@ -29,11 +28,12 @@ public class Main {
         };
 
         double[][] n2 = new double[][]{
-                {1, 2, 8},
-                {3, 4, 5},
-                {6, 7, 9}
+                {1, 2, 3},
+                {4, 5, 6}
         };
 
+        System.out.println("TASK 1\n");
+        
         System.out.println("1)");
         System.out.println(Array2DUtils.min(n));
 
@@ -57,6 +57,14 @@ public class Main {
 
         System.out.println("\n8)");
         System.out.println(Arrays.deepToString(Array2DUtils.transposeMatrix(n2)));
+
+        System.out.println("\nTASK 2\n");
+
+        Animal a1 = new Animal("bob", "male", 5, "Dog");
+        Animal a2 = new Animal("Mogi", "male", 3, "Monkey");
+
+        System.out.println(a1.toString());
+        System.out.println(a1.equals(a2));
     }
 
 }
