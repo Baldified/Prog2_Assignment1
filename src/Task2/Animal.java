@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Animal {
-        String name;
-        String gender;
-        int age;
-        String type;
-        static ArrayList<String> legalTypes = new ArrayList<>();
-        static {
+
+    
+        public String name;
+        public String gender;
+        public int age;
+        public String type;
+        public static ArrayList<String> legalTypes = new ArrayList<>();
+        {
             legalTypes.add("Dog");
             legalTypes.add("Cat");
             legalTypes.add("Monkey");
@@ -106,6 +108,15 @@ public class Animal {
         this.type = type;
     }
 
+    public static ArrayList<String> getLegalTypes() {
+        return legalTypes;
+    }
     
-    
+    public void addLegalTypes(String type) {
+        legalTypes.add(type);
+    }
+
+    public void removeLegalTypes(String type) {
+        legalTypes.remove(type);
+    }
 }

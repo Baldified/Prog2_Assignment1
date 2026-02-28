@@ -65,6 +65,6 @@ public class Main {
 
         System.out.println(a1.toString());
         System.out.println(a1.equals(a2));
-    }
 
+        }
 }

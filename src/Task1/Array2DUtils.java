@@ -36,25 +36,6 @@ public class Array2DUtils {
 
     // 3.
     public static double[] minOfCol(double[][] numss) {
-//        int length = Integer.MIN_VALUE;
-//        for (double[] nums : numss) {
-//            if (nums.length > length) length = nums.length;
-//        }
-//
-//        double[][] swap = new double[length][length];
-//        for (double[] minOfCol : swap) {
-//            Arrays.fill(minOfCol, Double.POSITIVE_INFINITY);
-//        }
-//        for (int i = 0; i < length; i++) {
-//            for (int j = 0; j < length; j++) {
-//                try {
-//                    swap[i][j] = numss[j][i];
-//                } catch (IndexOutOfBoundsException _) {
-//                }
-//
-//            }
-//        }
-//        return minOfRow(swap);
         int length = 0;
         for (double[] col : numss)
             if (col.length > length)
